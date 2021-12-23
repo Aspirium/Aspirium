@@ -1,0 +1,23 @@
+{
+  "name": "Aspirium-System",
+  "tree": {
+    "$className": "DataModel",
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+
+      "Aspirium_Rojo": {
+        "$className": "Folder",
+
+        "MainModule": {
+          "$path": "MainModule"
+        },
+
+        "Aspirium": {
+          "$className": "Folder",
+          "$path": "Loader"
+        }
+      }
+    }
+  }
+}

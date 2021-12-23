@@ -1,0 +1,22 @@
+<roblox version="4">
+  <Item class="ServerScriptService" referent="0">
+    <Properties>
+      <string name="Name">ServerScriptService</string>
+    </Properties>
+    <Item class="Folder" referent="1">
+      <Properties>
+        <string name="Name">Aspirium_Rojo</string>
+      </Properties>
+      <Item class="Model" referent="2">
+        <Properties>
+          <string name="Name">Aspirium_Loader</string>
+        </Properties>
+      </Item>
+      <Item class="Folder" referent="3">
+        <Properties>
+          <string name="Name">MainModule</string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+</roblox>
