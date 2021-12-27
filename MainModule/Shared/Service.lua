@@ -6,7 +6,7 @@
 
 --]]
 
-return function(Environment, ErrorHandler, EventChecker, FenceSpecific)
+return function(Environment, ErrorHandler, FenceSpecific)
     -- Script Globals --
     local print = Environment.print
     local warn  = Environment.warn
@@ -163,11 +163,11 @@ return function(Environment, ErrorHandler, EventChecker, FenceSpecific)
                 RunnerEvent = Service.New("BindableEvent")
             }
 
-            function Task:Trigger(self, ...)
+            function Task:Trigger(...)
                 self.Event:Fire(...)
             end
 
-            function Task:Delete(self)
+            function Task:Delete()
                 if not Properties.Temporary then
                     TaskSchedulers[TaskName] = nil
                 end
@@ -1272,8 +1272,8 @@ return function(Environment, ErrorHandler, EventChecker, FenceSpecific)
             end 
         end,
 
-		RawEqual = function(Object1, Object1) 
-            return Service.UnWrap(Object1) == Service.UnWrap(Object1) 
+		RawEqual = function(Object1, Object2) 
+            return Service.UnWrap(Object1) == Service.UnWrap(Object2) 
         end
     }, {
         __index = function(_, Index)

@@ -12,7 +12,7 @@
 
 --[[
 
-	A message to all Aspirium users.
+	A message to all Aspirium users,
 	Please give the people below the credit they deserve. This project would not be possible without the maintainers of Adonis.
 	
 	Sceleratis / Davey_Bones
@@ -62,7 +62,7 @@
 	@GitHub SlipperySpelunky
 	@GitHub c6lvnss
 	@GitHub alau740
-	
+
 ]]--
 
 ------------------------------------------
@@ -219,7 +219,7 @@ local Descriptions = {}
 ]]--
     local ServerStorage = game:GetService("ServerStorage")
 
-	Settings.ModuleId = ServerStorage.MainModule
+	Settings.ModuleId = script.Parent.Parent.MainModule
 
 	Settings.DataStore = {
 		Method = "Internal", --// Usable Methods: Internal; None; Web (MUST HAVE WEBPANEL ACCOUNT + WEBPANEL ENABLED)
@@ -231,52 +231,52 @@ local Descriptions = {}
 		Moderators = {
 			Level = 30,
 			Users = {
-				--// Users must follow the user format above. (Lines 77 - 104)
+				--// Users must follow the user format above. (Lines 114 - 154)
 			}
 		},
 		
 		Admins = {
 			Level = 50,
 			Users = {
-				--// Users must follow the user format above. (Lines 77 - 104)
+				--// Users must follow the user format above. (Lines 114 - 154)
 			}
 		},
 		
 		HeadAdmins = {
 			Level = 70,
 			Users = {
-				--// Users must follow the user format above. (Lines 77 - 104)
+				--// Users must follow the user format above. (Lines 114 - 154)
 			}
 		},
 		
 		Creators = {
 			Level = 90,
 			Users = {
-				--// Users must follow the user format above. (Lines 77 - 104)
+				--// Users must follow the user format above. (Lines 114 - 154)
 			}
 		}
 	}
 
 	Settings.CommandPermissions = {
-		--// Command Permissions must follow the command permissions format above. (Lines 109 - 126)
+		--// Command Permissions must follow the command permissions format above. (Lines 159 - 176)
 	}
 
 	Settings.Banned = { --// Banned users / groups from the game.
-		--// Bans must follow the user format above. (Lines 77 - 104)
+		--// Bans must follow the user format above. (Lines 114 - 154)
 	}
 
 	Settings.Muted = { --// Auto-Muted users / groups (revokes the ability to chat)
-		--// Mutes must follow the user format above. (Lines 77 - 104)
+		--// Mutes must follow the user format above. (Lines 114 - 154)
 	}
 
 	Settings.Blacklist = { --// Users who are blacklisted from receiving administrative privileges.
-		--// Blacklists must follow the user format above. (Lines 77 - 104)
+		--// Blacklists must follow the user format above. (Lines 114 - 154)
 	}
 
 	Settings.Whitelist = { --// Users who are whitelisted (Bypass server lock / whitelist restrictions)
 		Enabled = false,
 		Users = {
-			--// Whitelists must follow the user format above. (Lines 77 - 104)\	
+			--// Whitelists must follow the user format above. (Lines 114 - 154)
 		}
 	}
 
@@ -313,7 +313,7 @@ local Descriptions = {}
 		ChatCommands = true, --// Determines if commands can be run in chat, or console only
 		CreatorPowers = true, --// Determines if I (Sky, the Aspirium developer) has access to creator-admin (mainly for debugging.)
 		ModeratorPowers = false, --// Determines if global Aspirium moderators (Users ranked as moderators or admins in the Aspirium group)
-								 --// have Admin
+								 --// have moderator privileges.
 		CodeExecution = true, --// Determines if the `;script` command is enabled to run code on the server / client.
 		
 		BanMessage = {
@@ -324,7 +324,7 @@ local Descriptions = {}
 			
 		},
 		
-		SystemTitle = "Aspirium System", --// The title that will be shown in ;sm
+		SystemTitle = "Aspirium System Message", --// The title that will be shown in ;sm
 		
 		MaxLogs = 5000, --// The maximum amount of logs the system will store, before deleting the oldest.
 		AdminNotifications = true,

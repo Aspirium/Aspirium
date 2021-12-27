@@ -99,8 +99,7 @@ local Load = function()
 		DataTable.Plugins = GetPlugins()
 		
 		local Aspirium = GetModule()
-		print(Aspirium)
-		local ServerStarted, ServerResponse, ServerErrorCount = Aspirium(DataTable)
+		local ServerStarted, ServerResponse = Aspirium(DataTable)
 		
 		if ServerStarted then
 			PluginsFolder:Destroy()
@@ -108,7 +107,7 @@ local Load = function()
 			
 			Container.Parent = nil
 		else
-			error("Aspirium server failed to start. Response: " .. tostring(ServerResponse) .. ";\nErrors: " .. tostring(ServerErrorCount))
+			error("Aspirium server failed to start. Response: " .. tostring(ServerResponse))
 			
 			Container:Destroy()
 		end
