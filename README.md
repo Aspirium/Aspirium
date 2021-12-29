@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://aspirium.dev/favicon.ico" />
+    <img src="https://aspirium.dev/favicon.ico" style="width: 20%"/>
     <div>&nbsp;</div>
     <a href="https://github.com/Aspirium/Aspirium/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/Aspirium/Aspirium">
@@ -18,4 +18,4 @@
 
 Aspirium is an Adonis-Based server administration system used for moderation suite for ROBLOX games.
 
-# Installation and Documentation coming soon.
+## Installation and Documentation coming soon.
