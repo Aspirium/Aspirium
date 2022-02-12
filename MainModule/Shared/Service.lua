@@ -21,7 +21,7 @@ return function(Environment, ErrorHandler, FenceSpecific)
     -- Method Caching --
     local RealMethods = {}
     local Methods = setmetatable({}, {
-        __index = function(Self, Index)
+        __index = function(_, Index)
             return function(Object, ...)
                 local Ran, ClassName = pcall(function() return Object.ClassName end)
 

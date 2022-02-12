@@ -38,7 +38,9 @@ local debug = {
     output = function(...)
         local Stack = debug.info(2, "s")
         for _, Message in pairs({...}) do 
-            oldWarn("[Aspirium : " .. tostring(Stack) .. " : DEBUG]: " .. tostring(Message)) 
+            if debug.enabled then
+                oldWarn("[Aspirium : " .. tostring(Stack) .. " : DEBUG]: " .. tostring(Message))  
+            end
         end 
     end
 }
@@ -50,6 +52,7 @@ local debug = {
 -- Variables --
 local Folder = script.Parent
 local MainModule = Folder.Parent
+local Client = MainModule.Client
 local Shared = MainModule.Shared
 local Server = {}
 local Service = {}
@@ -85,6 +88,7 @@ end
 local Environment = {
     Server = Server,
     Service = Service,
+    Shared = Shared,
 
     print = print,
     warn  = warn,
@@ -118,6 +122,7 @@ return Service.NewProxy({
         return "Aspirium"
     end,
     __call = function(_, Data)
+        --// no idea why it's called "mutex", but eh, going with it
         if _G.Aspirium_Mutex then
             warn("\n-----------------------------------------------"
                 .."\nAspirium server is already running! Aborting..."
@@ -132,6 +137,27 @@ return Service.NewProxy({
             warn("Aspirium was ran without loader data present. Starting with default settings...")
         end
 
+        Data = Service.Wrap(Data or {})
+
+        --// Server Variables
+        local DefaultSettings = require(Server.Dependencies.DefaultSettings)
+        Server.DefaultSettings = DefaultSettings
         
+        Server.Settings = Data.Settings or DefaultSettings.Settings or {}
+        Server.Descriptions = Data.Descriptions or DefaultSettings.Descriptions or {}
+        Server.Order = Data.Order or DefaultSettings.Order or {}
+
+        Server.LoaderData = Data or {}
+
+        debug.enabled = Server.Settings.Debug
+
+        --// Clone shared resources to the server and client dependencies folder
+        debug.output("Clone Shared Resources")
+
+        for _, Resource in pairs(Shared:GetChildren()) do
+            local Clone = Resource:Clone()
+            Resource.Parent = Server.Dependencies
+            Clone.Parent = Client.Dependencies
+        end
     end
 })

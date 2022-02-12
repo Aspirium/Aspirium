@@ -33,6 +33,7 @@ local SettingsInstance = Container.Settings
 local DataTable = {
 	Settings = {},
 	Descriptions = {},
+	Order = {},
 	Plugins = {}
 }
 
@@ -96,6 +97,8 @@ local Load = function()
 	if IsValid then
 		DataTable.Settings = Settings.Settings
 		DataTable.Descriptions = Settings.Descriptions
+		DataTable.Order = Settings.Order
+		
 		DataTable.Plugins = GetPlugins()
 		
 		local Aspirium = GetModule()
